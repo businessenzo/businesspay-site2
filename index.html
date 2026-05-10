@@ -54,42 +54,68 @@
       <!-- Logo + Mascote Ghost -->
       <a href="#" class="logo" aria-label="BusinessPay — Página inicial">
         <!--
-          MASCOTE: Fantasma branco minimalista, estilo premium.
-          Expressão séria / confiante. Olhos semicerrados com pálpebra.
-          Boca reta. Pequenos sparkles (PIX) ao lado.
+          MASCOTE v3: Fantasma branco #FFFFFF. Corpo super arredondado.
+          Olhos grandes com brilho. Sorriso com língua vermelha para fora.
+          Expressão carismática e profissional. Sombra leve. SVG leve.
         -->
-        <svg class="logo-icon" viewBox="0 0 42 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="logo-icon" viewBox="0 0 46 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
-            <linearGradient id="ghostGrad" x1="0" y1="0" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#E8193C"/>
-              <stop offset="1" stop-color="#FF4D7E"/>
-            </linearGradient>
+            <filter id="gShadow" x="-15%" y="-8%" width="130%" height="130%">
+              <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.32"/>
+            </filter>
+            <radialGradient id="eyeGrad" cx="35%" cy="30%" r="65%">
+              <stop offset="0%" stop-color="#2d1040"/>
+              <stop offset="100%" stop-color="#0d0510"/>
+            </radialGradient>
           </defs>
 
-          <!-- Corpo do fantasma -->
-          <path d="M21 3C12.72 3 6 9.72 6 18v21l3.5-2.5 3.5 2.5 3.5-2.5 3.5 2.5 3.5-2.5 3.5 2.5 3.5-2.5 3.5 2.5V18C36 9.72 29.28 3 21 3z"
-                fill="url(#ghostGrad)"/>
+          <!-- ── Corpo — branco puro, muito arredondado ── -->
+          <path d="M23 2C13.6 2 6 9.6 6 19v23
+                   l3.8-2.6 3.8 2.6 3.8-2.6 3.8 2.6
+                   3.8-2.6 3.8 2.6 3.8-2.6 3.8 2.6
+                   V19C40 9.6 32.4 2 23 2z"
+                fill="#FFFFFF" filter="url(#gShadow)"/>
 
-          <!-- Highlight superior (brilho) -->
-          <ellipse cx="17.5" cy="10" rx="5" ry="2.8" fill="rgba(255,255,255,0.13)"/>
+          <!-- Brilho/highlight no topo do corpo -->
+          <ellipse cx="19" cy="10" rx="6" ry="3.2" fill="rgba(255,255,255,0.55)"/>
 
-          <!-- Olho esquerdo — pálpebra baixa (sério/confiante) -->
-          <ellipse cx="15.5" cy="20" rx="2.8" ry="2.1" fill="white"/>
-          <path d="M12.7 18.3 Q15.5 16.7 18.3 18.3" fill="rgba(220,15,55,0.82)"/>
-          <circle cx="15.5" cy="20.3" r="1.15" fill="#120810"/>
+          <!-- ── Olho esquerdo ── -->
+          <circle cx="16.5" cy="20" r="3.6" fill="url(#eyeGrad)"/>
+          <!-- pupila brilhante -->
+          <circle cx="17.6" cy="18.8" r="1.3" fill="white" opacity=".95"/>
+          <!-- reflexo menor -->
+          <circle cx="15.4" cy="21.2" r=".55" fill="white" opacity=".4"/>
 
-          <!-- Olho direito — pálpebra baixa -->
-          <ellipse cx="26.5" cy="20" rx="2.8" ry="2.1" fill="white"/>
-          <path d="M23.7 18.3 Q26.5 16.7 29.3 18.3" fill="rgba(220,15,55,0.82)"/>
-          <circle cx="26.5" cy="20.3" r="1.15" fill="#120810"/>
+          <!-- ── Olho direito ── -->
+          <circle cx="29.5" cy="20" r="3.6" fill="url(#eyeGrad)"/>
+          <circle cx="30.6" cy="18.8" r="1.3" fill="white" opacity=".95"/>
+          <circle cx="28.4" cy="21.2" r=".55" fill="white" opacity=".4"/>
 
-          <!-- Boca reta — expressão séria/neutra -->
-          <path d="M17.8 26 H24.2" stroke="white" stroke-width="1.7" stroke-linecap="round"/>
+          <!-- ── Sorriso — abertura da boca ── -->
+          <!-- Contorno da boca (sorriso curvo) -->
+          <path d="M17 26 Q23 31.5 29 26"
+                stroke="#180c28" stroke-width="1.4"
+                stroke-linecap="round" fill="none"/>
+          <!-- Interior da boca (preenchimento escuro) -->
+          <path d="M17.8 26.8 Q23 31.8 28.2 26.8 Q23 29.5 17.8 26.8Z"
+                fill="#180c28"/>
 
-          <!-- Sparkles PIX (pequenos pontos coloridos) -->
-          <circle cx="34.5" cy="7"   r="1.4" fill="#10B981" opacity=".85"/>
-          <circle cx="32"   cy="4"   r=".9"  fill="#F59E0B" opacity=".7"/>
-          <circle cx="37"   cy="4.5" r=".75" fill="#FF85A1" opacity=".75"/>
+          <!-- ── Língua — vermelha, saindo pela boca ── -->
+          <!-- Corpo da língua -->
+          <ellipse cx="23" cy="30.8" rx="3.6" ry="2.8" fill="#E8193C"/>
+          <!-- Sulco central da língua -->
+          <line x1="23" y1="28.5" x2="23" y2="33"
+                stroke="#C0102A" stroke-width="1" stroke-linecap="round" opacity=".7"/>
+          <!-- Sombra/base da língua (mais escura) -->
+          <ellipse cx="23" cy="32" rx="3.6" ry="1.4" fill="#C0102A" opacity=".6"/>
+          <!-- Brilho na língua -->
+          <ellipse cx="21.4" cy="29.6" rx="1.2" ry=".7"
+                   fill="rgba(255,255,255,0.38)"/>
+
+          <!-- ── Sparkles decorativos ── -->
+          <circle cx="37.5" cy="7"   r="1.6" fill="#10B981" opacity=".88"/>
+          <circle cx="35"   cy="3.8" r="1"   fill="#F59E0B" opacity=".75"/>
+          <circle cx="40"   cy="4.5" r=".8"  fill="#FF85A1" opacity=".8"/>
         </svg>
 
         <span class="logo-text">BusinessPay</span>
@@ -686,6 +712,10 @@
         <div class="rwd-divider"></div>
         <div class="rwd-prizes">
           <div class="rwd-prize">
+            <span class="ico">🏅</span>
+            Placa exclusiva de 100 mil
+          </div>
+          <div class="rwd-prize">
             <span class="ico">📱</span>
             Ganhe um iPhone 17 Pro Max
           </div>
@@ -702,6 +732,10 @@
         <div class="rwd-amount">R$ 500.000</div>
         <div class="rwd-divider"></div>
         <div class="rwd-prizes">
+          <div class="rwd-prize">
+            <span class="ico">🏅</span>
+            Placa exclusiva de 500 mil
+          </div>
           <div class="rwd-prize">
             <span class="ico">💻</span>
             Ganhe um MacBook
@@ -723,6 +757,10 @@
         <div class="rwd-amount">R$ 1.000.000</div>
         <div class="rwd-divider"></div>
         <div class="rwd-prizes">
+          <div class="rwd-prize">
+            <span class="ico">🏅</span>
+            Placa exclusiva de 1 milhão
+          </div>
           <div class="rwd-prize">
             <span class="ico">✈️</span>
             Viagem para Dubai
@@ -748,6 +786,10 @@
         <div class="rwd-amount">R$ 5.000.000</div>
         <div class="rwd-divider"></div>
         <div class="rwd-prizes">
+          <div class="rwd-prize">
+            <span class="ico">🏅</span>
+            Placa exclusiva de 5 milhões
+          </div>
           <div class="rwd-prize">
             <span class="ico">✈️</span>
             Viagem para Dubai com tudo pago
@@ -863,21 +905,29 @@
       <!-- Brand -->
       <div class="footer-brand">
         <a href="#" class="logo" aria-label="BusinessPay">
-          <svg width="32" height="33" viewBox="0 0 42 44" fill="none" aria-hidden="true">
+          <svg width="34" height="36" viewBox="0 0 46 48" fill="none" aria-hidden="true">
             <defs>
-              <linearGradient id="gFoot" x1="0" y1="0" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#E8193C"/>
-                <stop offset="1" stop-color="#FF4D7E"/>
-              </linearGradient>
+              <filter id="gFootShadow" x="-15%" y="-8%" width="130%" height="130%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.28"/>
+              </filter>
+              <radialGradient id="eyeGradF" cx="35%" cy="30%" r="65%">
+                <stop offset="0%" stop-color="#2d1040"/>
+                <stop offset="100%" stop-color="#0d0510"/>
+              </radialGradient>
             </defs>
-            <path d="M21 3C12.72 3 6 9.72 6 18v21l3.5-2.5 3.5 2.5 3.5-2.5 3.5 2.5 3.5-2.5 3.5 2.5 3.5-2.5 3.5 2.5V18C36 9.72 29.28 3 21 3z" fill="url(#gFoot)"/>
-            <ellipse cx="15.5" cy="20"   rx="2.8" ry="2.1" fill="white"/>
-            <path d="M12.7 18.3 Q15.5 16.7 18.3 18.3" fill="rgba(220,15,55,0.82)"/>
-            <circle cx="15.5" cy="20.3" r="1.15" fill="#120810"/>
-            <ellipse cx="26.5" cy="20"   rx="2.8" ry="2.1" fill="white"/>
-            <path d="M23.7 18.3 Q26.5 16.7 29.3 18.3" fill="rgba(220,15,55,0.82)"/>
-            <circle cx="26.5" cy="20.3" r="1.15" fill="#120810"/>
-            <path d="M17.8 26 H24.2" stroke="white" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M23 2C13.6 2 6 9.6 6 19v23l3.8-2.6 3.8 2.6 3.8-2.6 3.8 2.6 3.8-2.6 3.8 2.6 3.8-2.6 3.8 2.6V19C40 9.6 32.4 2 23 2z"
+                  fill="#FFFFFF" filter="url(#gFootShadow)"/>
+            <ellipse cx="19" cy="10" rx="6" ry="3.2" fill="rgba(255,255,255,0.5)"/>
+            <circle cx="16.5" cy="20" r="3.6" fill="url(#eyeGradF)"/>
+            <circle cx="17.6" cy="18.8" r="1.3" fill="white" opacity=".95"/>
+            <circle cx="29.5" cy="20" r="3.6" fill="url(#eyeGradF)"/>
+            <circle cx="30.6" cy="18.8" r="1.3" fill="white" opacity=".95"/>
+            <path d="M17 26 Q23 31.5 29 26" stroke="#180c28" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <path d="M17.8 26.8 Q23 31.8 28.2 26.8 Q23 29.5 17.8 26.8Z" fill="#180c28"/>
+            <ellipse cx="23" cy="30.8" rx="3.6" ry="2.8" fill="#E8193C"/>
+            <line x1="23" y1="28.5" x2="23" y2="33" stroke="#C0102A" stroke-width="1" stroke-linecap="round" opacity=".7"/>
+            <ellipse cx="23" cy="32" rx="3.6" ry="1.4" fill="#C0102A" opacity=".6"/>
+            <ellipse cx="21.4" cy="29.6" rx="1.2" ry=".7" fill="rgba(255,255,255,0.38)"/>
           </svg>
           <span class="logo-text">BusinessPay</span>
         </a>
