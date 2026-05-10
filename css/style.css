@@ -1414,19 +1414,42 @@ footer {
   max-width: calc(100vw - 32px);
 }
 
+/* ── TOAST: glassmorphism premium ── */
 .toast {
-  background: rgba(255,255,255,.97);
-  border: 1px solid rgba(232,25,60,.18);
-  border-radius: 14px;
-  padding: 11px 13px;
-  box-shadow: 0 6px 28px rgba(0,0,0,.2);
-  display: flex; align-items: center; gap: 10px;
+  /* Vidro escuro — efeito glass real */
+  background: rgba(18, 10, 28, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  /* Linha de luz sutil no topo (efeito vidro premium) */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 18px;
+  padding: 13px 14px;
+  display: flex; align-items: center; gap: 11px;
   pointer-events: all;
-  min-width: 240px;
-  max-width: 285px;
+  min-width: 248px;
+  max-width: 295px;
   transform: translateY(70px);
   opacity: 0;
   animation: toastIn .45s cubic-bezier(.34,1.56,.64,1) forwards;
+  /* Linha de cor no topo do card */
+  position: relative;
+  overflow: hidden;
+}
+/* Linha gradiente no topo */
+.toast::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg,
+    rgba(232,25,60,.9) 0%,
+    rgba(255,77,126,.8) 50%,
+    rgba(255,133,161,.5) 100%);
 }
 .toast.out { animation: toastOut .35s ease forwards; }
 
@@ -1434,22 +1457,53 @@ footer {
 @keyframes toastOut { to { transform: translateY(12px); opacity: 0; } }
 
 .toast-ico {
-  width: 34px; height: 34px;
-  border-radius: 8px; flex-shrink: 0;
-  background: linear-gradient(135deg, #E8193C, #FF85A1);
+  width: 38px; height: 38px;
+  border-radius: 11px; flex-shrink: 0;
+  background: linear-gradient(135deg, #E8193C, #FF4D7E);
+  box-shadow: 0 4px 14px rgba(232,25,60,.5),
+              inset 0 1px 0 rgba(255,255,255,.2);
   display: flex; align-items: center; justify-content: center;
 }
-.toast-body     { flex: 1; min-width: 0; }
-.toast-title2   { font-size: .76rem; font-weight: 700; color: #1a0a10; line-height: 1.3; }
-.toast-val      { font-family: 'Syne', sans-serif; font-size: .9rem; font-weight: 800; color: #E8193C; margin-top: 1px; }
-.toast-time2    { font-size: .62rem; color: #999; margin-top: 1px; }
+.toast-body   { flex: 1; min-width: 0; }
+
+/* Texto bem legível sobre vidro escuro */
+.toast-title2 {
+  font-size: .76rem; font-weight: 700;
+  color: rgba(245,238,248,.95);
+  line-height: 1.3;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4);
+}
+.toast-val {
+  font-family: 'Syne', sans-serif;
+  font-size: .94rem; font-weight: 800;
+  /* Rosa brilhante, legível no escuro */
+  color: #FF85A1;
+  text-shadow: 0 0 12px rgba(255,133,161,.4);
+  margin-top: 2px;
+}
+.toast-time2  {
+  font-size: .63rem;
+  color: rgba(245,238,248,.42);
+  margin-top: 1px;
+}
 .toast-x {
-  background: none; border: none; cursor: pointer;
-  color: #bbb; font-size: .9rem; padding: 2px; flex-shrink: 0;
-  transition: color .18s;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 50%;
+  width: 22px; height: 22px;
+  cursor: pointer;
+  color: rgba(255,255,255,.45);
+  font-size: .7rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background .18s, color .18s, border-color .18s;
   -webkit-tap-highlight-color: transparent;
 }
-.toast-x:hover { color: var(--red); }
+.toast-x:hover {
+  background: rgba(232,25,60,.3);
+  border-color: rgba(232,25,60,.4);
+  color: #fff;
+}
 
 /* ─────────────────────────────────────────────────────────
    25. OVERLAY MODAL — "Página não disponível"
